@@ -28,20 +28,20 @@ class connect():
         payload["page_size"] = 20
         payload["has_images"] = True
         
-        json = self.request(payload)
-        if json["count"] == 0:
+        json_data = self.request(payload)
+        if json_data["count"] == 0:
             raise Exception("No items found.")
         
-        item_index = np.random.randint(json["count"])
+        item_index = np.random.randint(json_data["count"])
         page_number = item_index // payload["page_size"]
         page_number += 1 # first page has index 1 (not 0)
         page_index = item_index % payload["page_size"]
         
         if page_number > 1:
             payload = {**payload, **{"page": page_number}}
-            json = self.request(payload)
+            json_data = self.request(payload)
         
-        item = json["results"][page_index]
+        item = json_data["results"][page_index]
                 
         return item
 
