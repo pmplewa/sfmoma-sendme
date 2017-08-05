@@ -3,14 +3,6 @@ import numpy as np
 import requests
 from urllib.parse import urljoin
 
-# check if running in a jupyter notebook
-try:
-    shell = get_ipython().__class__.__name__
-    if shell != "ZMQInteractiveShell":
-        raise Exception(shell)
-except:
-    raise
-
 class connect():
     def __init__(self, token, root_url="https://www.sfmoma.org/api/collection",
                  resource_url="artworks"):
