@@ -42,7 +42,7 @@ class connect():
 
     def display_item(self, item):
         image = item["images"][0]
-        image = image["z"] # 640px on the longest side]
+        image = image["b"] # 1024px on the longest side
         display(Image(image["url"]))       
         display(HTML("<b>Description:</b>"))
         display(HTML(item["description"]))
