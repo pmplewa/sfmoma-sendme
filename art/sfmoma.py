@@ -17,6 +17,7 @@ class connect():
     def get_item(self, keyword):
         payload = {}
         payload["object_keywords__regex"] = f"\m{keyword.lower()}\M"
+        payload["page"] = 1
         payload["page_size"] = 20
         payload["has_images"] = True
         
